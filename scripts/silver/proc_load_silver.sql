@@ -159,7 +159,7 @@ BEGIN
 			gen
 		)
 		SELECT 
-			CASE WHEN cid LIKE 'NAS%' THEN SUBSTRING(cid,9, 5)-- remove 'NAS' prefix if present
+			CASE WHEN cid LIKE 'NAS%' THEN SUBSTRING(cid,4, LEN(cid))-- remove 'NAS' prefix if present
 				ELSE cid END as cid,
 			CASE WHEN bdate > GETDATE() THEN NULL	
 				ELSE bdate END AS bdate,-- set future birthdates to NULL
